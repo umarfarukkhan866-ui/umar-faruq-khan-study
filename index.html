@@ -1,193 +1,1519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Umar Faruq Khan - Sainik School Class 9 AI Study</title>
+<title>Umar Faruq Khan | Sainik School Class 9 AI Study</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f3f6fb;
+    color:#172033;
+}
+
+header{
+    background:#102a43;
+    color:white;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:18px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+
+.hero{
+    background:linear-gradient(135deg,#102a43,#2563eb);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 25px;
+    background:#16a34a;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#15803d;
+}
+
+section{
+    padding:55px 7%;
+}
+
+.title{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:30px;
+}
+
+.subject-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.subject-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.subject-card:hover{
+    transform:translateY(-5px);
+}
+
+.subject-card h3{
+    margin-bottom:10px;
+    color:#2563eb;
+}
+
+.subject-card p{
+    color:#555;
+    line-height:1.5;
+}
+
+#chapterArea{
+    display:none;
+    background:#eaf2ff;
+    padding:25px;
+    border-radius:15px;
+    margin-top:30px;
+}
+
+.chapter-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.chapter-btn{
+    border:none;
+    padding:18px;
+    border-radius:10px;
+    background:white;
+    cursor:pointer;
+    font-weight:bold;
+    text-align:left;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.chapter-btn:hover{
+    background:#dbeafe;
+}
+
+#notesBox{
+    display:none;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    max-width:1000px;
+    margin:30px auto 0;
+}
+
+#notesBox h3{
+    color:#2563eb;
+    margin:20px 0 10px;
+}
+
+#notesBox p,
+#notesBox li{
+    line-height:1.7;
+    margin-bottom:8px;
+}
+
+#notesBox ul{
+    margin-left:25px;
+}
+
+.quiz-container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+#quizSetup{
+    text-align:center;
+}
+
+select{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #bbb;
+    margin:10px;
+    min-width:220px;
+}
+
+#quizArea{
+    display:none;
+}
+
+#questionNumber{
+    font-weight:bold;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+#questionText{
+    font-size:21px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+.answer{
+    width:100%;
+    display:block;
+    text-align:left;
+    padding:14px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#f8fafc;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.answer:hover{
+    background:#dbeafe;
+}
+
+.answer.correct{
+    background:#bbf7d0;
+    border-color:#16a34a;
+}
+
+.answer.wrong{
+    background:#fecaca;
+    border-color:#dc2626;
+}
+
+#quizMessage{
+    margin-top:15px;
+    font-weight:bold;
+}
+
+#scoreBox{
+    display:none;
+    text-align:center;
+    padding:25px;
+}
+
+footer{
+    background:#102a43;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    line-height:1.8;
+}
+
+@media(max-width:650px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:5px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    section{
+        padding:40px 5%;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
 <header>
-  <div class="logo">UFK</div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#subjects">Subjects</a>
-    <a href="#notes">Notes</a>
-    <a href="#quiz">Quiz</a>
-  </nav>
+    <div class="logo">UFK Study</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#notes">Notes</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
 </header>
 
 
-<section id="home" class="hero">
+<!-- HOME -->
 
-  <div class="hero-content">
+<section class="hero" id="home">
 
     <h1>Umar Faruq Khan</h1>
 
     <h2>Sainik School Class 9th AI Study Website</h2>
 
     <p>
-      Specially designed for students preparing
-      for Sainik School Class 9th.
+        This website is specially designed for students
+        preparing for Sainik School Class 9th.
+        Study chapter-wise notes and practice questions.
     </p>
 
-    <button onclick="startQuiz()">
-      Start Quiz
+    <button class="btn"
+            onclick="document.getElementById('subjects').scrollIntoView()">
+        Start Studying
     </button>
-
-  </div>
 
 </section>
 
+
+<!-- SUBJECTS -->
 
 <section id="subjects">
 
-  <h2 class="section-title">📚 Class 9 Subjects</h2>
+    <h2 class="title">📚 Class 9 Subjects</h2>
 
-  <div class="subject-grid">
+    <div class="subject-grid">
 
-    <div class="subject-card">
-      <h3>➗ Mathematics</h3>
-      <p>Class 9 Mathematics Notes & Practice</p>
+        <div class="subject-card"
+             onclick="showChapters('Mathematics')">
+
+            <h3>➗ Mathematics</h3>
+
+            <p>
+                Number systems, algebra, geometry,
+                statistics and more.
+            </p>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="showChapters('Science')">
+
+            <h3>🔬 Science</h3>
+
+            <p>
+                Physics, Chemistry and Biology
+                study topics.
+            </p>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="showChapters('Social Science')">
+
+            <h3>🌍 Social Science</h3>
+
+            <p>
+                History, Geography, Civics
+                and Economics.
+            </p>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="showChapters('English')">
+
+            <h3>📖 English</h3>
+
+            <p>
+                Grammar, vocabulary, comprehension
+                and writing.
+            </p>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="showChapters('Logic')">
+
+            <h3>🧠 Logic</h3>
+
+            <p>
+                Analogy, series, classification
+                and reasoning.
+            </p>
+
+        </div>
+
+
+        <div class="subject-card"
+             onclick="showChapters('Intelligence')">
+
+            <h3>🎯 Intelligence</h3>
+
+            <p>
+                Mental ability and intelligence
+                practice.
+            </p>
+
+        </div>
+
     </div>
 
-    <div class="subject-card">
-      <h3>🔬 Science</h3>
-      <p>Physics, Chemistry & Biology</p>
-    </div>
 
-    <div class="subject-card">
-      <h3>🌍 Social Science</h3>
-      <p>History, Geography, Civics & Economics</p>
-    </div>
+    <div id="chapterArea">
 
-    <div class="subject-card">
-      <h3>📖 English</h3>
-      <p>Grammar, Literature & Vocabulary</p>
-    </div>
+        <h2 id="selectedSubject"></h2>
 
-    <div class="subject-card">
-      <h3>🧠 Logic</h3>
-      <p>Logical Reasoning Practice</p>
-    </div>
+        <p>
+            नीचे chapter चुनें और उसके notes पढ़ें:
+        </p>
 
-    <div class="subject-card">
-      <h3>🎯 Intelligence</h3>
-      <p>Intelligence & Mental Ability Questions</p>
-    </div>
+        <div class="chapter-grid" id="chapterList"></div>
 
-  </div>
+    </div>
 
 </section>
 
+
+<!-- NOTES -->
 
 <section id="notes">
 
-  <h2 class="section-title">📘 Study Notes</h2>
+    <h2 class="title">📘 Chapter Notes</h2>
 
-  <div class="notes-box">
+    <div id="notesBox">
 
-    <h3>Mathematics</h3>
+        <h2 id="notesTitle"></h2>
 
-    <p>
-      Algebra, Number Systems, Geometry, Statistics,
-      Mensuration and other Class 9 topics.
-    </p>
+        <div id="notesContent"></div>
 
-    <hr>
-
-    <h3>Science</h3>
-
-    <p>
-      Matter, Motion, Force, Atoms, Cells,
-      Tissues and other Class 9 topics.
-    </p>
-
-    <hr>
-
-    <h3>English</h3>
-
-    <p>
-      Grammar, vocabulary, reading comprehension
-      and writing practice.
-    </p>
-
-    <hr>
-
-    <h3>Social Science</h3>
-
-    <p>
-      History, Geography, Civics and Economics.
-    </p>
-
-    <hr>
-
-    <h3>Logic & Intelligence</h3>
-
-    <p>
-      Series, analogy, classification,
-      coding-decoding and reasoning practice.
-    </p>
-
-  </div>
+    </div>
 
 </section>
 
+
+<!-- QUIZ -->
 
 <section id="quiz">
 
-  <h2 class="section-title">📝 Class 9 Practice Quiz</h2>
+    <h2 class="title">📝 Practice Quiz</h2>
 
-  <div class="quiz-box">
+    <div class="quiz-container">
 
-    <div id="question-number"></div>
 
-    <h3 id="question">
-      Click "Start Quiz" to begin.
-    </h3>
+        <div id="quizSetup">
 
-    <div id="answers"></div>
+            <p>
+                Subject चुनिए और अपना practice quiz शुरू करें।
+            </p>
 
-    <button id="next-btn" onclick="nextQuestion()">
-      Next Question
-    </button>
+            <select id="quizSubject"
+                    onchange="loadQuizChapters()">
 
-    <div id="result"></div>
+                <option value="">Select Subject</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Science">Science</option>
+                <option value="Social Science">Social Science</option>
+                <option value="English">English</option>
+                <option value="Logic">Logic</option>
+                <option value="Intelligence">Intelligence</option>
 
-  </div>
+            </select>
+
+
+            <select id="quizChapter">
+
+                <option value="">Select Chapter</option>
+
+            </select>
+
+
+            <br>
+
+            <button class="btn"
+                    onclick="startQuiz()">
+
+                Start Quiz
+
+            </button>
+
+        </div>
+
+
+        <div id="quizArea">
+
+            <div id="questionNumber"></div>
+
+            <div id="questionText"></div>
+
+            <div id="answers"></div>
+
+            <div id="quizMessage"></div>
+
+            <button class="btn"
+                    id="nextButton"
+                    onclick="nextQuestion()"
+                    style="display:none;">
+
+                Next Question
+
+            </button>
+
+        </div>
+
+
+        <div id="scoreBox">
+
+            <h2>🎉 Quiz Completed!</h2>
+
+            <p id="finalScore"></p>
+
+            <button class="btn"
+                    onclick="location.reload()">
+
+                Try Again
+
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-  <h3>Umar Faruq Khan</h3>
+    <h2>Umar Faruq Khan</h2>
 
-  <p>
-    Sainik School Class 9th AI Study Website
-  </p>
+    <p>
+        Sainik School Class 9th AI Study Website
+    </p>
 
-  <p>
-    Created by Umar Faruq Khan
-  </p>
+    <p>
+        Created by Umar Faruq Khan
+    </p>
 
-  <p>
-    Mobile: YOUR-MOBILE-NUMBER
-  </p>
+    <p>
+        Mobile: YOUR-MOBILE-NUMBER
+    </p>
 
-  <p>
-    © 2026 Umar Faruq Khan
-  </p>
+    <p>
+        © 2026 Umar Faruq Khan
+    </p>
 
 </footer>
 
 
-<script src="script.js"></script>
+
+<script>
+
+/* =========================================
+   CHAPTER-WISE NOTES
+========================================= */
+
+const studyData = {
+
+    "Mathematics": {
+
+        "Number Systems": `
+            <h3>📌 What is a Number System?</h3>
+
+            <p>
+            A number system is a way of representing and
+            working with numbers.
+            </p>
+
+            <h3>Important Types</h3>
+
+            <ul>
+                <li>Natural Numbers: 1, 2, 3, 4...</li>
+                <li>Whole Numbers: 0, 1, 2, 3...</li>
+                <li>Integers: ..., -2, -1, 0, 1, 2...</li>
+                <li>Rational Numbers can be written as p/q,
+                    where q is not zero.</li>
+                <li>Irrational numbers cannot be expressed
+                    as p/q.</li>
+            </ul>
+
+            <h3>Quick Revision</h3>
+
+            <p>
+            Rational + Irrational numbers together form
+            the real numbers.
+            </p>
+        `,
+
+
+        "Polynomials": `
+            <h3>📌 Polynomial</h3>
+
+            <p>
+            A polynomial is an algebraic expression made from
+            variables, constants and non-negative integer powers.
+            </p>
+
+            <h3>Examples</h3>
+
+            <ul>
+                <li>x + 5</li>
+                <li>x² + 3x + 2</li>
+                <li>2x³ - x + 7</li>
+            </ul>
+
+            <h3>Important Terms</h3>
+
+            <p>
+            The highest power of the variable is called
+            the degree of the polynomial.
+            </p>
+        `,
+
+
+        "Coordinate Geometry": `
+            <h3>📌 Coordinate Geometry</h3>
+
+            <p>
+            Coordinate geometry uses numbers to locate points
+            on a plane.
+            </p>
+
+            <h3>Important Concepts</h3>
+
+            <ul>
+                <li>X-axis</li>
+                <li>Y-axis</li>
+                <li>Origin</li>
+                <li>Coordinates of a point: (x,y)</li>
+                <li>Four quadrants</li>
+            </ul>
+
+            <p>
+            The origin is represented by (0,0).
+            </p>
+        `
+
+    },
+
+
+    "Science": {
+
+        "Matter in Our Surroundings": `
+            <h3>📌 Matter</h3>
+
+            <p>
+            Matter is anything that has mass and occupies space.
+            </p>
+
+            <h3>States of Matter</h3>
+
+            <ul>
+                <li>Solid</li>
+                <li>Liquid</li>
+                <li>Gas</li>
+            </ul>
+
+            <h3>Important Point</h3>
+
+            <p>
+            Particles of matter are continuously moving and
+            have spaces between them.
+            </p>
+        `,
+
+
+        "The Fundamental Unit of Life": `
+            <h3>📌 Cell</h3>
+
+            <p>
+            The cell is the basic structural and functional
+            unit of life.
+            </p>
+
+            <h3>Main Cell Parts</h3>
+
+            <ul>
+                <li>Cell membrane</li>
+                <li>Cytoplasm</li>
+                <li>Nucleus</li>
+                <li>Mitochondria</li>
+                <li>Vacuoles</li>
+            </ul>
+
+            <p>
+            The nucleus contains genetic material and
+            helps control cell activities.
+            </p>
+        `,
+
+
+        "Motion": `
+            <h3>📌 Motion</h3>
+
+            <p>
+            An object is said to be in motion when its position
+            changes with time relative to a reference point.
+            </p>
+
+            <h3>Important Formula</h3>
+
+            <p>
+            Speed = Distance ÷ Time
+            </p>
+
+            <p>
+            SI unit of speed is metre per second (m/s).
+            </p>
+        `
+
+    },
+
+
+    "Social Science": {
+
+        "The French Revolution": `
+            <h3>📌 French Revolution</h3>
+
+            <p>
+            The French Revolution began in 1789 and brought
+            major political and social changes in France.
+            </p>
+
+            <h3>Important Ideas</h3>
+
+            <ul>
+                <li>Liberty</li>
+                <li>Equality</li>
+                <li>Fraternity</li>
+            </ul>
+
+            <p>
+            The revolution challenged the privileges of
+            the traditional social and political order.
+            </p>
+        `,
+
+
+        "India - Size and Location": `
+            <h3>📌 India</h3>
+
+            <p>
+            India is located in the northern and eastern
+            hemispheres.
+            </p>
+
+            <h3>Important Points</h3>
+
+            <ul>
+                <li>India lies in South Asia.</li>
+                <li>The Tropic of Cancer passes through India.</li>
+                <li>India has a long coastline.</li>
+            </ul>
+        `,
+
+
+        "Democracy": `
+            <h3>📌 Democracy</h3>
+
+            <p>
+            Democracy is a system of government in which
+            citizens participate in choosing their representatives.
+            </p>
+
+            <h3>Important Features</h3>
+
+            <ul>
+                <li>Free and fair elections</li>
+                <li>Rule of law</li>
+                <li>Citizen participation</li>
+                <li>Protection of rights</li>
+            </ul>
+        `
+
+    },
+
+
+    "English": {
+
+        "Grammar": `
+            <h3>📌 Parts of Speech</h3>
+
+            <ul>
+                <li>Noun - name of a person, place or thing.</li>
+                <li>Pronoun - used in place of a noun.</li>
+                <li>Verb - shows action or state.</li>
+                <li>Adjective - describes a noun.</li>
+                <li>Adverb - modifies a verb, adjective or adverb.</li>
+            </ul>
+
+            <h3>Example</h3>
+
+            <p>
+            The intelligent student solved the question quickly.
+            </p>
+        `,
+
+
+        "Tenses": `
+            <h3>📌 Tenses</h3>
+
+            <p>
+            Tense tells us the time of an action.
+            </p>
+
+            <ul>
+                <li>Present Tense</li>
+                <li>Past Tense</li>
+                <li>Future Tense</li>
+            </ul>
+
+            <h3>Example</h3>
+
+            <p>
+            Present: I play.<br>
+            Past: I played.<br>
+            Future: I will play.
+            </p>
+        `,
+
+
+        "Vocabulary": `
+            <h3>📌 Vocabulary</h3>
+
+            <p>
+            Vocabulary means the collection of words
+            known and used by a person.
+            </p>
+
+            <h3>Useful Examples</h3>
+
+            <ul>
+                <li>Brave - courageous</li>
+                <li>Happy - joyful</li>
+                <li>Quick - fast</li>
+                <li>Begin - start</li>
+            </ul>
+        `
+
+    },
+
+
+    "Logic": {
+
+        "Number Series": `
+            <h3>📌 Number Series</h3>
+
+            <p>
+            In a number series, numbers follow a particular
+            pattern.
+            </p>
+
+            <h3>Example</h3>
+
+            <p>
+            2, 4, 6, 8, 10
+            </p>
+
+            <p>
+            Each number increases by 2.
+            </p>
+        `,
+
+
+        "Analogy": `
+            <h3>📌 Analogy</h3>
+
+            <p>
+            Analogy questions ask us to identify a similar
+            relationship between two pairs.
+            </p>
+
+            <h3>Example</h3>
+
+            <p>
+            Bird : Fly :: Fish : Swim
+            </p>
+        `,
+
+
+        "Classification": `
+            <h3>📌 Classification</h3>
+
+            <p>
+            Classification means finding the item that does
+            not belong to a particular group.
+            </p>
+
+            <h3>Example</h3>
+
+            <p>
+            Apple, Mango, Banana, Carrot
+            </p>
+
+            <p>
+            Carrot is different because it is a vegetable.
+            </p>
+        `
+
+    },
+
+
+    "Intelligence": {
+
+        "Coding Decoding": `
+            <h3>📌 Coding-Decoding</h3>
+
+            <p>
+            Coding-decoding questions use a hidden rule
+            to change letters or words.
+            </p>
+
+            <h3>Example</h3>
+
+            <p>
+            If A becomes B, B becomes C and so on,
+            then CAT becomes DBU.
+            </p>
+        `,
+
+
+        "Direction Test": `
+            <h3>📌 Direction Test</h3>
+
+            <p>
+            Direction questions test our understanding of
+            north, south, east and west.
+            </p>
+
+            <ul>
+                <li>North is upward.</li>
+                <li>South is downward.</li>
+                <li>East is right.</li>
+                <li>West is left.</li>
+            </ul>
+        `,
+
+
+        "Blood Relations": `
+            <h3>📌 Blood Relations</h3>
+
+            <p>
+            These questions test relationships between
+            family members.
+            </p>
+
+            <p>
+            Always draw a small family tree when a question
+            becomes difficult.
+            </p>
+        `
+
+    }
+
+};
+
+
+/* =========================================
+   CHAPTER SELECTION
+========================================= */
+
+function showChapters(subject){
+
+    const area =
+        document.getElementById("chapterArea");
+
+    const title =
+        document.getElementById("selectedSubject");
+
+    const list =
+        document.getElementById("chapterList");
+
+    title.innerText =
+        "📚 " + subject + " - Chapters";
+
+    list.innerHTML = "";
+
+    const chapters =
+        Object.keys(studyData[subject]);
+
+    chapters.forEach(chapter => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "chapter-btn";
+
+        button.innerText =
+            "📘 " + chapter;
+
+        button.onclick = function(){
+
+            showNotes(subject,chapter);
+
+        };
+
+        list.appendChild(button);
+
+    });
+
+    area.style.display = "block";
+
+    area.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================================
+   SHOW NOTES
+========================================= */
+
+function showNotes(subject,chapter){
+
+    const box =
+        document.getElementById("notesBox");
+
+    const title =
+        document.getElementById("notesTitle");
+
+    const content =
+        document.getElementById("notesContent");
+
+    title.innerText =
+        subject + " → " + chapter;
+
+    content.innerHTML =
+        studyData[subject][chapter];
+
+    box.style.display = "block";
+
+    document.getElementById("notes")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* =========================================
+   QUIZ DATA
+========================================= */
+
+const quizData = [
+
+    {
+        subject:"Mathematics",
+        chapter:"Number Systems",
+        q:"Which of the following is a rational number?",
+        options:["√2","3/4","π","√5"],
+        answer:1
+    },
+
+    {
+        subject:"Mathematics",
+        chapter:"Polynomials",
+        q:"What is the degree of x² + 3x + 2?",
+        options:["1","2","3","4"],
+        answer:1
+    },
+
+    {
+        subject:"Mathematics",
+        chapter:"Coordinate Geometry",
+        q:"What are the coordinates of the origin?",
+        options:["(1,1)","(0,1)","(1,0)","(0,0)"],
+        answer:3
+    },
+
+
+    {
+        subject:"Science",
+        chapter:"Matter in Our Surroundings",
+        q:"Which state of matter has a fixed shape?",
+        options:["Gas","Liquid","Solid","None"],
+        answer:2
+    },
+
+    {
+        subject:"Science",
+        chapter:"The Fundamental Unit of Life",
+        q:"What is called the basic unit of life?",
+        options:["Tissue","Organ","Cell","Organ system"],
+        answer:2
+    },
+
+    {
+        subject:"Science",
+        chapter:"Motion",
+        q:"What is the formula for speed?",
+        options:[
+            "Time × Distance",
+            "Distance ÷ Time",
+            "Time ÷ Distance",
+            "Distance + Time"
+        ],
+        answer:1
+    },
+
+
+    {
+        subject:"Social Science",
+        chapter:"The French Revolution",
+        q:"The French Revolution began in which year?",
+        options:["1776","1789","1857","1947"],
+        answer:1
+    },
+
+    {
+        subject:"Social Science",
+        chapter:"India - Size and Location",
+        q:"India is located mainly in which part of Asia?",
+        options:[
+            "South Asia",
+            "North America",
+            "Europe",
+            "South America"
+        ],
+        answer:0
+    },
+
+    {
+        subject:"Social Science",
+        chapter:"Democracy",
+        q:"Which is an important feature of democracy?",
+        options:[
+            "No elections",
+            "Free and fair elections",
+            "No citizens",
+            "No laws"
+        ],
+        answer:1
+    },
+
+
+    {
+        subject:"English",
+        chapter:"Grammar",
+        q:"Which word is a noun?",
+        options:["Run","Beautiful","School","Quickly"],
+        answer:2
+    },
+
+    {
+        subject:"English",
+        chapter:"Tenses",
+        q:"Which sentence is in the past tense?",
+        options:[
+            "I play cricket.",
+            "I am playing cricket.",
+            "I played cricket.",
+            "I will play cricket."
+        ],
+        answer:2
+    },
+
+    {
+        subject:"English",
+        chapter:"Vocabulary",
+        q:"What is a synonym of 'Happy'?",
+        options:[
+            "Sad",
+            "Joyful",
+            "Angry",
+            "Weak"
+        ],
+        answer:1
+    },
+
+
+    {
+        subject:"Logic",
+        chapter:"Number Series",
+        q:"What comes next: 2, 4, 6, 8, ?",
+        options:["9","10","11","12"],
+        answer:1
+    },
+
+    {
+        subject:"Logic",
+        chapter:"Analogy",
+        q:"Bird : Fly :: Fish : ?",
+        options:["Run","Swim","Walk","Jump"],
+        answer:1
+    },
+
+    {
+        subject:"Logic",
+        chapter:"Classification",
+        q:"Which is different?",
+        options:[
+            "Apple",
+            "Mango",
+            "Banana",
+            "Carrot"
+        ],
+        answer:3
+    },
+
+
+    {
+        subject:"Intelligence",
+        chapter:"Coding Decoding",
+        q:"If CAT becomes DBU, how will DOG be coded?",
+        options:["EPH","EOG","DPH","FOG"],
+        answer:0
+    },
+
+    {
+        subject:"Intelligence",
+        chapter:"Direction Test",
+        q:"Which direction is opposite to North?",
+        options:["East","West","South","North-East"],
+        answer:2
+    },
+
+    {
+        subject:"Intelligence",
+        chapter:"Blood Relations",
+        q:"Your father's son (other than you) is your...",
+        options:["Uncle","Brother","Father","Cousin"],
+        answer:1
+    }
+
+];
+
+
+let currentQuestions = [];
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+/* =========================================
+   QUIZ CHAPTER DROPDOWN
+========================================= */
+
+function loadQuizChapters(){
+
+    const subject =
+        document.getElementById("quizSubject").value;
+
+    const chapterSelect =
+        document.getElementById("quizChapter");
+
+    chapterSelect.innerHTML =
+        '<option value="">All Chapters</option>';
+
+    if(!subject) return;
+
+    const chapters = [
+        ...new Set(
+            quizData
+            .filter(q => q.subject === subject)
+            .map(q => q.chapter)
+        )
+    ];
+
+    chapters.forEach(chapter => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = chapter;
+
+        option.innerText = chapter;
+
+        chapterSelect.appendChild(option);
+
+    });
+}
+
+
+/* =========================================
+   START QUIZ
+========================================= */
+
+function startQuiz(){
+
+    const subject =
+        document.getElementById("quizSubject").value;
+
+    const chapter =
+        document.getElementById("quizChapter").value;
+
+    if(!subject){
+
+        alert("Please select a subject first.");
+
+        return;
+
+    }
+
+    currentQuestions =
+        quizData.filter(q => {
+
+            if(q.subject !== subject)
+                return false;
+
+            if(chapter && q.chapter !== chapter)
+                return false;
+
+            return true;
+
+        });
+
+    if(currentQuestions.length === 0){
+
+        alert("No questions available for this chapter yet.");
+
+        return;
+
+    }
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quizSetup")
+        .style.display = "none";
+
+    document.getElementById("quizArea")
+        .style.display = "block";
+
+    document.getElementById("scoreBox")
+        .style.display = "none";
+
+    showQuestion();
+
+}
+
+
+/* =========================================
+   SHOW QUESTION
+========================================= */
+
+function showQuestion(){
+
+    answered = false;
+
+    const q =
+        currentQuestions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .innerText =
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        currentQuestions.length +
+        " | " +
+        q.chapter;
+
+    document.getElementById("questionText")
+        .innerText = q.q;
+
+    document.getElementById("quizMessage")
+        .innerText = "";
+
+    const answers =
+        document.getElementById("answers");
+
+    answers.innerHTML = "";
+
+    q.options.forEach((option,index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "answer";
+
+        button.innerText =
+            String.fromCharCode(65 + index) +
+            ". " +
+            option;
+
+        button.onclick = function(){
+
+            checkAnswer(index,button);
+
+        };
+
+        answers.appendChild(button);
+
+    });
+
+    document.getElementById("nextButton")
+        .style.display = "none";
+}
+
+
+/* =========================================
+   CHECK ANSWER
+========================================= */
+
+function checkAnswer(selected,button){
+
+    if(answered) return;
+
+    answered = true;
+
+    const correct =
+        currentQuestions[currentQuestion].answer;
+
+    const allButtons =
+        document.querySelectorAll(".answer");
+
+    allButtons.forEach((btn,index) => {
+
+        if(index === correct){
+
+            btn.classList.add("correct");
+
+        }
+
+    });
+
+
+    if(selected === correct){
+
+        score++;
+
+        button.classList.add("correct");
+
+        document.getElementById("quizMessage")
+            .innerText =
+            "✅ Correct Answer!";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        document.getElementById("quizMessage")
+            .innerText =
+            "❌ Wrong Answer. The correct answer is: " +
+            currentQuestions[currentQuestion].options[correct];
+
+    }
+
+
+    document.getElementById("nextButton")
+        .style.display = "inline-block";
+}
+
+
+/* =========================================
+   NEXT QUESTION
+========================================= */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion < currentQuestions.length){
+
+        showQuestion();
+
+    }else{
+
+        finishQuiz();
+
+    }
+
+}
+
+
+/* =========================================
+   FINISH QUIZ
+========================================= */
+
+function finishQuiz(){
+
+    document.getElementById("quizArea")
+        .style.display = "none";
+
+    document.getElementById("scoreBox")
+        .style.display = "block";
+
+    document.getElementById("finalScore")
+        .innerText =
+        "Your Score: " +
+        score +
+        " / " +
+        currentQuestions.length;
+
+    document.getElementById("scoreBox")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+</script>
 
 </body>
 </html>
