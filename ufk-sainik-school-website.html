@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UFK Sainik School Class 9 Study</title>
+<meta name="description" content="Sainik School Class 9 study website by Umar Faruq Khan">
+<style>
+:root{--blue:#2563eb;--navy:#0b1730;--sky:#eff6ff;--bg:#f7f9fc;--card:#fff;--text:#172033;--muted:#64748b;--line:#e2e8f0;--green:#16a34a;--red:#dc2626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,select{font:inherit}.wrap{max-width:1180px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:10;background:rgba(11,23,48,.97);color:#fff;box-shadow:0 4px 18px #0002}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#38bdf8,#4f46e5);display:grid;place-items:center;font-weight:900;box-shadow:0 8px 25px #2563eb55}.brand b{display:block}.brand small{color:#cbd5e1}.links{display:flex;gap:5px;flex-wrap:wrap}.links button{border:0;background:transparent;color:#fff;padding:9px 11px;border-radius:8px;cursor:pointer}.links button:hover{background:#ffffff18}
+.hero{background:linear-gradient(135deg,#0b1730,#1d4ed8 65%,#38bdf8);color:#fff;padding:70px 0}.hero-grid{display:grid;grid-template-columns:1.4fr .7fr;gap:35px;align-items:center}.tag{display:inline-block;background:#ffffff18;border:1px solid #ffffff33;padding:7px 12px;border-radius:999px}.hero h1{font-size:clamp(38px,6vw,68px);line-height:1;margin:18px 0}.hero h1 span{color:#bae6fd}.hero p{font-size:18px;color:#dbeafe;max-width:700px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:800;cursor:pointer}.primary{background:#22c55e;color:#052e16}.light{background:#fff;color:#1e3a8a}.outline{background:transparent;border:1px solid #ffffff55;color:#fff}.dash{background:#ffffff12;border:1px solid #ffffff25;border-radius:22px;padding:22px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.stat{background:#ffffff10;border-radius:13px;padding:14px}.stat strong{font-size:25px;display:block}.stat small{color:#cbd5e1}
+section{padding:55px 0}.head{margin-bottom:24px}.head h2{font-size:32px;margin:0 0 5px}.head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:0 10px 30px #0f172a0a;cursor:pointer;transition:.18s}.card:hover{transform:translateY(-4px);border-color:#93c5fd}.icon{font-size:34px}.card h3{margin:8px 0 3px}.card p{color:var(--muted);font-size:14px}.pill{display:inline-block;background:var(--sky);color:#1d4ed8;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800;margin-top:10px}
+.panel{display:none;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.panel.show{display:block}.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}.topic{border:1px solid var(--line);background:#f8fafc;border-radius:12px;padding:13px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}.topic:hover{background:#eff6ff}.topic.done{background:#f0fdf4;border-color:#86efac}
+.progress{height:11px;background:#e2e8f0;border-radius:99px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,#2563eb,#7c3aed);width:0}.prow{margin:13px 0}.prow-top{display:flex;justify-content:space-between;font-size:13px;font-weight:800;margin-bottom:5px}
+.notes{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:0 10px 30px #0f172a0a}.notes h2{color:#1d4ed8}.notes li{margin:7px 0}.tip{background:#eff6ff;border-left:5px solid #2563eb;padding:14px;border-radius:8px;margin-top:18px}
+.quiz{max-width:850px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px}.select{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;margin:7px 0 14px;background:#fff}.q{font-size:21px;font-weight:800;margin:17px 0}.ans{display:block;width:100%;text-align:left;padding:13px;border:2px solid var(--line);background:#f8fafc;border-radius:10px;margin:8px 0;cursor:pointer}.ans.correct{border-color:#22c55e;background:#dcfce7}.ans.wrong{border-color:#ef4444;background:#fee2e2}.msg{font-weight:800;margin:14px 0}.hide{display:none}
+footer{background:#0b1730;color:#cbd5e1;text-align:center;padding:38px}footer h3{color:#fff}
+
+.auth-btn{background:#2563eb!important}
+.user-chip{display:none;align-items:center;gap:8px;background:#ffffff12;border:1px solid #ffffff25;padding:7px 10px;border-radius:999px;font-size:13px}
+.user-chip.show{display:flex}.avatar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#38bdf8;color:#082f49;font-weight:900}
+.auth-overlay{position:fixed;inset:0;background:#020617aa;display:none;align-items:center;justify-content:center;padding:18px;z-index:100}
+.auth-overlay.open{display:flex}.auth-card{background:#fff;width:min(430px,100%);border-radius:20px;padding:28px;box-shadow:0 25px 80px #0005;position:relative}
+.auth-card h2{margin:0 0 6px}.auth-card p{color:#64748b}.auth-input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;margin:7px 0 12px;outline:none}.auth-input:focus{border-color:#2563eb;box-shadow:0 0 0 3px #2563eb18}
+.auth-tabs{display:flex;gap:6px;background:#f1f5f9;padding:5px;border-radius:10px;margin:18px 0}.auth-tab{flex:1;border:0;padding:9px;border-radius:8px;background:transparent;cursor:pointer;font-weight:800}.auth-tab.active{background:#fff;box-shadow:0 2px 8px #0f172a12;color:#1d4ed8}
+.auth-error{color:#dc2626;font-size:13px;min-height:20px;margin:2px 0 7px}.close-auth{position:absolute;right:14px;top:12px;border:0;background:#f1f5f9;border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:20px}
+.profile-box{display:none;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px;margin-bottom:20px;box-shadow:0 10px 30px #0f172a0a}.profile-box.show{display:block}.profile-box strong{font-size:20px}
+
+@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column;padding:10px 0}.links{overflow:auto;width:100%}.hero-grid{grid-template-columns:1fr}.hero{padding:50px 0}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="brand"><div class="logo">UFK</div><div><b>Umar Faruq Khan</b><small>Sainik School Class 9 Study</small></div></div>
+  <div class="links">
+    <button onclick="go('home')">Home</button><button onclick="go('subjects')">Subjects</button><button onclick="go('syllabus')">Syllabus</button><button onclick="go('notes')">Notes</button><button onclick="go('quiz')">Quiz</button>
+    <span class="user-chip" id="userChip"><span class="avatar" id="avatar">U</span><span id="userNameTop">Student</span></span>
+    <button class="auth-btn" id="authBtn" onclick="openAuth()">🔐 Sign In</button>
+  </div>
+</div></header>
+
+<main id="home">
+<section id="profile" class="wrap" style="padding-top:25px;padding-bottom:0">
+  <div class="profile-box" id="profileBox">
+    <strong>👋 Welcome, <span id="profileName">Student</span>!</strong>
+    <p id="profileEmail" style="margin:4px 0 10px;color:#64748b"></p>
+    <button class="btn primary" onclick="logout()">🚪 Logout</button>
+  </div>
+</section>
+<section class="hero"><div class="wrap hero-grid">
+  <div><span class="tag">🎓 AISSEE • Class IX</span><h1>Study. Practice. <span>Win.</span></h1>
+  <p>A simple Sainik School Class 9 preparation website with syllabus, chapter-wise quick notes, quizzes and progress tracking.</p>
+  <div class="actions"><button class="btn primary" onclick="go('subjects')">📚 Start Study</button><button class="btn light" onclick="go('quiz')">📝 Take Quiz</button><button class="btn outline" onclick="go('syllabus')">📋 View Syllabus</button></div></div>
+  <div class="dash"><h3>📊 My Progress</h3><div class="stats"><div class="stat"><strong id="total">0</strong><small>Topics</small></div><div class="stat"><strong id="done">0</strong><small>Completed</small></div><div class="stat"><strong id="best">0%</strong><small>Best Quiz</small></div><div class="stat"><strong>400</strong><small>Exam Marks</small></div></div></div>
+</div></section>
+
+<section id="subjects"><div class="wrap"><div class="head"><h2>📚 Subjects</h2><p>Tap a subject to see all topics.</p></div><div class="cards" id="subjectCards"></div><div class="panel" id="topicPanel"><div class="head"><h2 id="subjectTitle"></h2><p id="subjectInfo"></p></div><div class="topics" id="topicList"></div></div></div></section>
+
+<section id="syllabus"><div class="wrap"><div class="head"><h2>📋 Syllabus & Progress</h2><p>Track what you have studied.</p></div><div id="progressList"></div></div></section>
+
+<section id="notes"><div class="wrap"><div class="head"><h2>📖 Notes</h2><p>Choose a topic from Subjects.</p></div><div class="notes" id="notesBox"><h2>Welcome 👋</h2><p>Click any chapter/topic above to open quick notes.</p><div class="tip">⭐ Study tip: Read the concept, revise key points, then attempt MCQs.</div></div></div></section>
+
+<section id="quiz"><div class="wrap"><div class="head"><h2>📝 Practice Quiz</h2><p>Start with the sample questions included in this version.</p></div><div class="quiz">
+<div id="setup"><label><b>Subject</b></label><select class="select" id="qs" onchange="fillTopics()"></select><label><b>Topic</b></label><select class="select" id="qt"></select><button class="btn primary" onclick="start()">🚀 Start Quiz</button></div>
+<div id="quizbox" class="hide"><small id="counter"></small><div class="q" id="question"></div><div id="answers"></div><div class="msg" id="message"></div><button class="btn primary hide" id="next" onclick="next()">Next →</button></div>
+<div id="result" class="hide" style="text-align:center"><h2>🎉 Quiz Complete</h2><p id="score"></p><button class="btn primary" onclick="resetQuiz()">Try Again</button></div>
+</div></div></section>
+</main>
+
+
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <button class="close-auth" onclick="closeAuth()">×</button>
+    <h2>🔐 UFK Student Account</h2>
+    <p>Sign in to keep your study progress on this browser.</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="loginTab" onclick="switchAuth('login')">Sign In</button>
+      <button class="auth-tab" id="signupTab" onclick="switchAuth('signup')">Create Account</button>
+    </div>
+    <div id="authForm">
+      <label><b id="nameLabel" class="hide">Full Name</b></label>
+      <input class="auth-input hide" id="authName" placeholder="Your name">
+      <label><b>Email</b></label>
+      <input class="auth-input" id="authEmail" type="email" placeholder="student@example.com" autocomplete="email">
+      <label><b>Password</b></label>
+      <input class="auth-input" id="authPassword" type="password" placeholder="At least 6 characters" autocomplete="current-password">
+      <div class="auth-error" id="authError"></div>
+      <button class="btn primary" style="width:100%" id="authSubmit" onclick="submitAuth()">Sign In</button>
+    </div>
+    <p style="font-size:12px;margin-top:15px">Demo/local account: data is stored in this browser's localStorage. It is not a secure online authentication service.</p>
+  </div>
+</div>
+
+<footer><h3>Umar Faruq Khan</h3><p>Sainik School Class 9 AI Study Website</p><p>Created by Umar Faruq Khan • 2026</p></footer>
+
+<script>
+const data={
+"Mathematics":["Rational Numbers","Linear Equations in One Variable","Understanding Quadrilaterals","Triangle and its Properties","Angle Sum Property","Pythagoras Theorem","Squares and Square Roots","Cubes and Cube Roots","Comparing Quantities","Percentage","Profit and Loss","Algebraic Expressions","Simple Interest","Compound Interest","Discount","Visualizing Solid Shapes","2D and 3D Shapes","Euler's Formula","Mensuration","Area and Perimeters","Volume and Surface Area","Exponents and Powers","Direct and Inverse Proportion","Factorization","Data Handling","Bar Graph","Line Graph","Playing with Numbers","Divisibility Test","Statistics","Mean, Mode, Median","Probability","Parallel Lines","Time and Work"],
+"Intelligence":["Analogies - Mathematical & Verbal","Spatial and Mathematical Patterns","Classification","Visual & Logical Reasoning","Series and Sequences","Critical Thinking & Problem Solving","Familial Relations"],
+"English":["Spotting Errors","Comprehension Passage","Antonyms","Synonyms","Prepositions","Articles","Types of Verbs","Tense Forms","Narration","Modals","Confusing Words","Subject-Verb Agreement","Correct Spellings","Order of Words","Idioms and Phrases","Sentence Improvement","Change of Sentence","Sentence Formation","Phrases and Clauses","Kinds of Noun","Adjectives","Interjection","Question Tags","Adverbs","Conjunctions","Conditions","Comparison of Adjectives","Voices","Types of Sentences","Personal Pronoun","Change of Gender","Change of Number"],
+"General Science":["Fossil Fuel: Coal and Petroleum","Combustion and Flame","Cell Structure and Function","Reproduction in Plants and Animals","Force, Friction and Pressure","Sound","Reflection and Dispersion of Light","Metals and Non-Metals","Synthetic Fibres and Plastics","Chemical Effects of Electric Current","Stars and Solar System","Pollution of Air and Water","Global Warming","Micro-organisms","Natural Phenomena","Calorific Value of Fuel","Electroplating","Types of Friction","Cropping Seasons","Agricultural Practices","Conservation of Plants and Animals","Biosphere Reserves, National Parks and Sanctuaries","Adolescence","Changes During Puberty","Endocrine Glands and Hormones"],
+"Social Science":["Geographical Diversity of India","Resources and their Conservation","Weather and Climate","Landforms and Life","Locating Places on Earth","Oceans and Continents","Types of Government","Constitution of India","Universal Franchise and Electoral System","Parliament System","Grassroot Democracy","From Barter to Money","Understanding Market","Economic Activity Around Us","Beginning of Indian Civilization","India's Cultural Roots","New Beginnings: Cities and States","Rise of Empire","Age of Reorganization","Gupta Era","Reshaping India's Political Map","Rise of Marathas","Colonial Era in India"]
+};
+const icon={Mathematics:"➗",Intelligence:"🧠",English:"📖","General Science":"🔬","Social Science":"🌍"};
+const info={Mathematics:"50 questions • 200 marks",Intelligence:"25 questions • 50 marks",English:"25 questions • 50 marks","General Science":"25 questions • 50 marks","Social Science":"25 questions • 50 marks"};
+const note={
+"Rational Numbers":["A rational number is p/q where p and q are integers and q ≠ 0.","Revise comparison, addition, subtraction, multiplication and division.","Practise sign rules and standard form."],
+"Linear Equations in One Variable":["Keep variable terms on one side and constants on the other.","Example: 2x + 4 = 10 ⇒ x = 3.","Always check the answer in the original equation."],
+"Pythagoras Theorem":["For a right triangle, c² = a² + b².","The hypotenuse is opposite the right angle.","Use consistent units before calculating."],
+"Percentage":["x% = x/100.","Percentage change = change/original × 100.","Practise percentage, profit-loss and discount questions."],
+"Profit and Loss":["Profit = SP − CP; Loss = CP − SP.","Profit% = Profit/CP × 100.","Loss% = Loss/CP × 100."],
+"Cell Structure and Function":["The cell is the basic structural and functional unit of life.","Know nucleus, cytoplasm, cell membrane, mitochondria and vacuoles.","Compare plant and animal cells."],
+"Force, Friction and Pressure":["Force is a push or pull.","Friction opposes relative motion between surfaces.","Pressure is force per unit area."],
+"Sound":["Sound is produced by vibration and normally needs a medium.","Frequency affects pitch and amplitude affects loudness.","Sound cannot travel through a vacuum."],
+"Synonyms":["Synonyms have similar meanings.","Learn words in context and remember common pairs.","Example: happy — joyful."],
+"Antonyms":["Antonyms have opposite meanings.","Check the part of speech before choosing an opposite word."],
+"Prepositions":["Prepositions show relationships of place, time or direction.","Examples: in, on, at, by, from, to, under, between."],
+"Articles":["A/an are indefinite articles; the is definite.","Use a before a consonant sound and an before a vowel sound."],
+"Series and Sequences":["Look for differences, multiplication, division or alternating patterns.","Write changes between terms to identify the rule."],
+"Classification":["Find the item that does not share the common property.","Check number, shape, meaning, category or function."],
+"Familial Relations":["Draw a small family tree for difficult blood-relation questions.","Translate each relation step-by-step."],
+"Weather and Climate":["Weather is short-term atmospheric condition; climate describes long-term patterns.","Revise temperature, rainfall, pressure and winds."],
+"Constitution of India":["The Constitution provides the framework for government and citizens' rights and duties.","Revise its key principles and institutions."],
+"From Barter to Money":["Barter is direct exchange of goods/services.","A major difficulty is double coincidence of wants.","Money makes exchange and pricing easier."]
+};
+function progress(){return JSON.parse(localStorage.ufk||"{}")}
+function save(p){localStorage.ufk=JSON.stringify(p)}
+function esc(s){return s.replace(/'/g,"\\'")}
+function render(){
+ let c=document.getElementById("subjectCards");c.innerHTML="";
+ Object.keys(data).forEach(s=>c.innerHTML+=`<div class="card" onclick="selectSubject('${s}')"><div class="icon">${icon[s]}</div><h3>${s}</h3><p>${info[s]}</p><span class="pill">${data[s].length} topics</span></div>`);
+ let p=progress(),total=Object.values(data).flat().length,done=Object.values(data).flat().filter(x=>p[x]).length;
+ document.getElementById("total").textContent=total;document.getElementById("done").textContent=done;document.getElementById("best").textContent=(localStorage.best||0)+"%";
+ document.getElementById("progressList").innerHTML=Object.keys(data).map(s=>{let d=data[s].filter(x=>p[x]).length,pc=Math.round(d/data[s].length*100);return `<div class="prow"><div class="prow-top"><span>${icon[s]} ${s}</span><span>${d}/${data[s].length} • ${pc}%</span></div><div class="progress"><div class="bar" style="width:${pc}%"></div></div></div>`}).join("");
+}
+function selectSubject(s){
+ let p=progress();document.getElementById("subjectTitle").textContent=icon[s]+" "+s;document.getElementById("subjectInfo").textContent=info[s];
+ document.getElementById("topicList").innerHTML=data[s].map((t,i)=>`<div class="topic ${p[t]?"done":""}" onclick="openNote('${s}','${esc(t)}')"><span><b>${i+1}. ${t}</b><br><small>Open Notes</small></span><span>${p[t]?"✅":"📘"}</span></div>`).join("");
+ document.getElementById("topicPanel").classList.add("show");document.getElementById("topicPanel").scrollIntoView({behavior:"smooth"});
+}
+function openNote(s,t){
+ let p=progress(),items=note[t]||[`This is an important ${s} topic for Class 9 Sainik School preparation.`,`Make a one-page revision sheet containing definitions, formulas/facts, examples and common question types.`,`After learning the concept, practise MCQs and revise mistakes.`];
+ document.getElementById("notesBox").innerHTML=`<h2>${icon[s]} ${t}</h2><p><b>Subject:</b> ${s}</p><h3>Quick Notes</h3><ul>${items.map(x=>"<li>"+x+"</li>").join("")}</ul><div class="tip">⭐ Exam Tip: Understand first, memorise key facts/formulas, then practise questions.</div><button class="btn primary" style="margin-top:16px" onclick="toggleDone('${esc(t)}')">${p[t]?"↩ Mark as not completed":"✅ Mark as completed"}</button>`;
+ go("notes");
+}
+function toggleDone(t){let p=progress();p[t]=!p[t];save(p);render();openNote(Object.keys(data).find(s=>data[s].includes(t)),t)}
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+
+const qs=[
+["Mathematics","Rational Numbers","Which is a rational number?",["√2","3/4","π","√5"],1],
+["Mathematics","Linear Equations in One Variable","If 2x + 4 = 10, x is:",["2","3","4","5"],1],
+["Mathematics","Percentage","25% equals:",["1/2","1/3","1/4","3/4"],2],
+["Mathematics","Pythagoras Theorem","Pythagoras theorem applies to a:",["Right-angled triangle","Circle","Any polygon","Line"],0],
+["Intelligence","Series and Sequences","2, 4, 6, 8, ?",["9","10","11","12"],1],
+["Intelligence","Classification","Which is different?",["Apple","Mango","Banana","Carrot"],3],
+["Intelligence","Familial Relations","Your father's son other than you is your:",["Brother","Uncle","Cousin","Grandfather"],0],
+["English","Synonyms","A synonym of 'happy' is:",["Sad","Joyful","Angry","Weak"],1],
+["English","Antonyms","An antonym of 'ancient' is:",["Old","Modern","Historic","Early"],1],
+["English","Articles","Choose the correct phrase:",["a apple","an apple","an boy","a orange"],1],
+["General Science","Force, Friction and Pressure","Pressure is:",["Force per unit area","Area per unit force","Distance/time","Mass×volume"],0],
+["General Science","Cell Structure and Function","The basic unit of life is:",["Tissue","Organ","Cell","Organ system"],2],
+["General Science","Sound","Sound normally needs:",["A medium","Only light","A vacuum","No particles"],0],
+["Social Science","Weather and Climate","Weather describes:",["Short-term atmospheric conditions","100-year patterns only","Only rainfall","Only temperature"],0],
+["Social Science","Constitution of India","The Constitution provides a framework for:",["Only sports","Government and citizens' rights/duties","Only trade","Only geography"],1],
+["Social Science","From Barter to Money","A major difficulty of barter is:",["Too much money","Double coincidence of wants","No goods","No buyers"],1]
+];
+let list=[],qi=0,score=0,answered=false;
+function fillSubjects(){qsEl.innerHTML=Object.keys(data).map(s=>`<option>${s}</option>`).join("");fillTopics()}
+let qsEl=document.getElementById("qs"),qtEl=document.getElementById("qt");
+function fillTopics(){let s=qsEl.value;qtEl.innerHTML="<option value=''>All sample questions</option>"+qs.filter(x=>x[0]===s).map(x=>`<option>${x[1]}</option>`).filter((v,i,a)=>a.indexOf(v)===i).join("")}
+function start(){let s=qsEl.value,t=qtEl.value;list=qs.filter(x=>x[0]===s&&(!t||x[1]===t));if(!list.length){alert("No sample questions for this topic yet. Choose All sample questions.");return}qi=0;score=0;document.getElementById("setup").classList.add("hide");document.getElementById("result").classList.add("hide");document.getElementById("quizbox").classList.remove("hide");show()}
+function show(){answered=false;let x=list[qi];document.getElementById("counter").textContent=`Question ${qi+1} of ${list.length} • ${x[1]}`;document.getElementById("question").textContent=x[2];document.getElementById("message").textContent="";document.getElementById("next").classList.add("hide");document.getElementById("answers").innerHTML=x[3].map((a,i)=>`<button class="ans" onclick="answer(${i},this)">${String.fromCharCode(65+i)}. ${a}</button>`).join("")}
+function answer(i,b){if(answered)return;answered=true;let x=list[qi];document.querySelectorAll(".ans").forEach((z,n)=>{if(n===x[4])z.classList.add("correct")});if(i===x[4]){score++;document.getElementById("message").textContent="✅ Correct!"}else{b.classList.add("wrong");document.getElementById("message").textContent="❌ Correct answer: "+x[3][x[4]]}document.getElementById("next").classList.remove("hide")}
+function next(){qi++;qi<list.length?show():finish()}
+function finish(){let pc=Math.round(score/list.length*100);document.getElementById("quizbox").classList.add("hide");document.getElementById("result").classList.remove("hide");document.getElementById("score").textContent=`You scored ${score}/${list.length} (${pc}%).`;let b=Number(localStorage.best||0);if(pc>b)localStorage.best=pc;render()}
+function resetQuiz(){document.getElementById("result").classList.add("hide");document.getElementById("setup").classList.remove("hide")}
+
+/* Local Sign In / Sign Up demo.
+   For real multi-device secure accounts, replace this with Firebase Authentication. */
+let authMode="login";
+function users(){return JSON.parse(localStorage.getItem("ufkUsers")||"{}")}
+function currentUser(){return localStorage.getItem("ufkCurrentUser")}
+function openAuth(){document.getElementById("authOverlay").classList.add("open");switchAuth(currentUser()?"login":"login")}
+function closeAuth(){document.getElementById("authOverlay").classList.remove("open")}
+function switchAuth(mode){
+  authMode=mode;
+  document.getElementById("loginTab").classList.toggle("active",mode==="login");
+  document.getElementById("signupTab").classList.toggle("active",mode==="signup");
+  document.getElementById("authName").classList.toggle("hide",mode!=="signup");
+  document.getElementById("nameLabel").classList.toggle("hide",mode!=="signup");
+  document.getElementById("authSubmit").textContent=mode==="signup"?"Create Account":"Sign In";
+  document.getElementById("authError").textContent="";
+}
+function submitAuth(){
+  const email=document.getElementById("authEmail").value.trim().toLowerCase();
+  const pass=document.getElementById("authPassword").value;
+  const name=document.getElementById("authName").value.trim();
+  const err=document.getElementById("authError");
+  if(!email||!email.includes("@")){err.textContent="Please enter a valid email.";return}
+  if(pass.length<6){err.textContent="Password must be at least 6 characters.";return}
+  let u=users();
+  if(authMode==="signup"){
+    if(!name){err.textContent="Please enter your name.";return}
+    if(u[email]){err.textContent="Account already exists. Please Sign In.";return}
+    u[email]={name:name,password:pass};
+    localStorage.setItem("ufkUsers",JSON.stringify(u));
+    localStorage.setItem("ufkCurrentUser",email);
+  }else{
+    if(!u[email]||u[email].password!==pass){err.textContent="Email or password is incorrect.";return}
+    localStorage.setItem("ufkCurrentUser",email);
+  }
+  closeAuth();updateAuthUI();
+}
+function logout(){localStorage.removeItem("ufkCurrentUser");updateAuthUI()}
+function updateAuthUI(){
+  const email=currentUser(),u=email?users()[email]:null;
+  const chip=document.getElementById("userChip"),btn=document.getElementById("authBtn"),box=document.getElementById("profileBox");
+  if(u){
+    document.getElementById("userNameTop").textContent=u.name;
+    document.getElementById("avatar").textContent=(u.name[0]||"U").toUpperCase();
+    document.getElementById("profileName").textContent=u.name;
+    document.getElementById("profileEmail").textContent=email;
+    chip.classList.add("show");btn.textContent="Account";box.classList.add("show");
+  }else{
+    chip.classList.remove("show");btn.textContent="🔐 Sign In";box.classList.remove("show");
+  }
+}
+document.getElementById("authOverlay").addEventListener("click",e=>{if(e.target.id==="authOverlay")closeAuth()});
+updateAuthUI();
+
+render();fillSubjects();
+</script>
+</body>
+</html>
